@@ -1,0 +1,7 @@
+services:
+  app:
+    image: ghcr.io/excoffierleonard/excoffierleonard.com:latest
+    build:
+      context: .
+    ports:
+      - "3000:3000"
