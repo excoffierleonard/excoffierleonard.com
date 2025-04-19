@@ -3,11 +3,11 @@
 async fn main() -> std::io::Result<()> {
     use actix_files::Files;
     use actix_web::*;
-    use leptos::prelude::*;
+    use excoffierleonard_com::app::*;
     use leptos::config::get_configuration;
-    use leptos_meta::MetaTags;
+    use leptos::prelude::*;
     use leptos_actix::{generate_route_list, LeptosRoutes};
-    use testssr::app::*;
+    use leptos_meta::MetaTags;
 
     let conf = get_configuration(None).unwrap();
     let addr = conf.leptos_options.site_addr;
@@ -80,7 +80,7 @@ pub fn main() {
     // a client-side main function is required for using `trunk serve`
     // prefer using `cargo leptos serve` instead
     // to run: `trunk serve --open --features csr`
-    use testssr::app::*;
+    use excoffierleonard_com::app::*;
 
     console_error_panic_hook::set_once();
 
