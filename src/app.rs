@@ -1,5 +1,5 @@
 use leptos::prelude::*;
-use leptos_meta::{provide_meta_context, Stylesheet, Title};
+use leptos_meta::{provide_meta_context, Link, Meta, Stylesheet, Title};
 use leptos_router::{
     components::{Route, Router, Routes},
     StaticSegment, WildcardSegment,
@@ -15,8 +15,16 @@ pub fn App() -> impl IntoView {
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/excoffierleonard_com.css"/>
 
-        // sets the document title
-        <Title text="Leonard Excoffier"/>
+        // SEO metadata
+        <Title text="Leonard Excoffier | Software Engineer"/>
+        <Meta name="description" content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."/>
+        <Meta name="keywords" content="software engineer, developer, Rust, Python, web development, Leonard Excoffier, programming"/>
+        <Meta name="author" content="Leonard Excoffier"/>
+        <Meta property="og:title" content="Leonard Excoffier | Software Engineer"/>
+        <Meta property="og:description" content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."/>
+        <Meta property="og:type" content="website"/>
+        <Link rel="canonical" href="https://excoffierleonard.com"/>
+        <Meta name="robots" content="index, follow"/>
 
         // content for this welcome page
         <Router>
