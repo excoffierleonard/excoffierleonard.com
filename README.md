@@ -1,72 +1,95 @@
-<picture>
-    <source srcset="https://raw.githubusercontent.com/leptos-rs/leptos/main/docs/logos/Leptos_logo_Solid_White.svg" media="(prefers-color-scheme: dark)">
-    <img src="https://raw.githubusercontent.com/leptos-rs/leptos/main/docs/logos/Leptos_logo_RGB.svg" alt="Leptos Logo">
-</picture>
+# Leonard Excoffier | Personal Portfolio
 
-# Leptos Starter Template
+This is my personal portfolio website built with the [Leptos](https://github.com/leptos-rs/leptos) web framework - a Rust-based reactive web framework.
 
-This is a template for use with the [Leptos](https://github.com/leptos-rs/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
+## Technology Stack
 
-## Creating your template repo
+- **Framework**: [Leptos](https://leptos.dev/) - modern Rust-based web framework
+- **Language**: Rust with WebAssembly for client-side
+- **Styling**: SCSS
+- **Testing**: Playwright for end-to-end testing
+- **Deployment**: Docker containerization
 
-If you don't have `cargo-leptos` installed you can install it with
+## Development
 
-`cargo install cargo-leptos --locked`
+### Prerequisites
 
-Then run
+Before running this project, ensure you have the following installed:
 
-`cargo leptos new --git leptos-rs/start-actix`
+1. [Rust](https://www.rust-lang.org/tools/install) (latest stable version)
+2. WebAssembly target: `rustup target add wasm32-unknown-unknown`
+3. Cargo Leptos: `cargo install cargo-leptos --locked`
+4. [Node.js](https://nodejs.org/) (for SCSS compilation and end-to-end tests)
+5. Sass: `npm install -g sass`
 
-to generate a new project template (you will be prompted to enter a project name).
+### Running Locally
 
-`cd {projectname}`
+To start the development server with hot reloading:
 
-to go to your newly created project.
-
-Of course, you should explore around the project structure, but the best place to start with your application code is in `src/app.rs`.
-
-## Running your project
-
-`cargo leptos watch`  
-By default, you can access your local project at `http://localhost:3000`
-
-## Installing Additional Tools
-
-By default, `cargo-leptos` uses `nightly` Rust, `cargo-generate`, and `sass`. If you run into any trouble, you may need to install one or more of these tools.
-
-1. `rustup toolchain install nightly --allow-downgrade` - make sure you have Rust nightly
-2. `rustup target add wasm32-unknown-unknown` - add the ability to compile Rust to WebAssembly
-3. `cargo install cargo-generate` - install `cargo-generate` binary (should be installed automatically in future)
-4. `npm install -g sass` - install `dart-sass` (should be optional in future)
-
-## Executing a Server on a Remote Machine Without the Toolchain
-After running a `cargo leptos build --release` the minimum files needed are:
-
-1. The server binary located in `target/server/release`
-2. The `site` directory and all files within located in `target/site`
-
-Copy these files to your remote server. The directory structure should be:
-```text
-leptos_start
-site/
+```bash
+cargo leptos watch
 ```
-Set the following environment variables (updating for your project as needed):
-```sh
-export LEPTOS_OUTPUT_NAME="leptos_start"
+
+The site will be available at `http://localhost:3000`
+
+### Building for Production
+
+```bash
+cargo leptos build --release
+```
+
+The compiled output will be in:
+
+- Server binary: `target/server/release/excoffierleonard_com`
+- Site assets: `target/site/`
+
+### Running Tests
+
+For unit and integration tests:
+
+```bash
+cargo test
+```
+
+For end-to-end tests (requires the server to be running):
+
+```bash
+cargo leptos end-to-end
+```
+
+## Deployment
+
+### Using Docker
+
+A Dockerfile and docker-compose.yml are included for easy containerization:
+
+```bash
+docker compose up -d
+```
+
+### Manual Deployment
+
+After building for production, copy the server binary and site directory to your server and set the required environment variables:
+
+```bash
+export LEPTOS_OUTPUT_NAME="excoffierleonard_com"
 export LEPTOS_SITE_ROOT="site"
 export LEPTOS_SITE_PKG_DIR="pkg"
-export LEPTOS_SITE_ADDR="127.0.0.1:3000"
-export LEPTOS_RELOAD_PORT="3001"
+export LEPTOS_SITE_ADDR="0.0.0.0:3000"
 ```
-Finally, run the server binary.
 
-## Notes about CSR and Trunk:
-Although it is not recommended, you can also run your project without server integration using the feature `csr` and `trunk serve`:
+Then run the server binary.
 
-`trunk serve --open --features csr`
+## Project Structure
 
-This may be useful for integrating external tools which require a static site, e.g. `tauri`.
+- `/src` - Rust source code
+  - `app.rs` - Main application component
+  - `lib.rs` - WASM hydration
+  - `main.rs` - Server setup
+- `/style` - SCSS stylesheets
+- `/assets` - Static assets
+- `/end2end` - End-to-end tests with Playwright
 
-## Licensing
+## License
 
-This template itself is released under the Unlicense. You should replace the LICENSE for your own application with an appropriate license if you plan to release it publicly.
+All rights reserved. This code is not licensed for public use or distribution.
