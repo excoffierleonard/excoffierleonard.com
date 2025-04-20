@@ -52,6 +52,11 @@ fn HomePage() -> impl IntoView {
 fn AnOtherPage() -> impl IntoView {
     view! {
         <h1>"This is an other page."</h1>
+        <nav>
+            <A href="/">"Go to Home Page"</A>
+            <A href="/another">"Go to Another Page"</A>
+            <A href="/any">"Go to Not Found Page"</A>
+        </nav>
     }
 }
 
