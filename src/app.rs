@@ -16,7 +16,7 @@ pub fn App() -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/excoffierleonard_com.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Leonard Excoffier"/>
 
         // content for this welcome page
         <Router>
@@ -38,7 +38,7 @@ fn HomePage() -> impl IntoView {
     let on_click = move |_| *count.write() += 1;
 
     view! {
-        <h1>"Welcome to Leptos!"</h1>
+        <h1>"Leonard Excoffier"</h1>
         <button on:click=on_click>"Click Me: " {count}</button>
     }
 }
