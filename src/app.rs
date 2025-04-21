@@ -28,6 +28,7 @@ pub fn App() -> impl IntoView {
 
         // content for this welcome page
         <Router>
+            <NavBar/>
             <main>
                 <Routes fallback=move || "Not found.">
                     <Route path=StaticSegment("") view=HomePage/>
