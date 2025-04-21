@@ -1,8 +1,8 @@
 use leptos::prelude::*;
-use leptos_meta::{Link, Meta, Stylesheet, Title, provide_meta_context};
+use leptos_meta::{provide_meta_context, Link, Meta, Stylesheet, Title};
 use leptos_router::{
+    components::{Route, Router, Routes, A},
     StaticSegment, WildcardSegment,
-    components::{A, Route, Router, Routes},
 };
 
 #[component]
@@ -13,31 +13,40 @@ pub fn App() -> impl IntoView {
     view! {
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
-        <Stylesheet id="leptos" href="/pkg/excoffierleonard_com.css"/>
+        <Stylesheet id="leptos" href="/pkg/excoffierleonard_com.css" />
 
         // SEO metadata
-        <Title text="Leonard Excoffier"/>
-        <Meta name="description" content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."/>
-        <Meta name="keywords" content="software engineer, developer, Rust, Python, web development, Leonard Excoffier, programming"/>
-        <Meta name="author" content="Leonard Excoffier"/>
-        <Meta property="og:title" content="Leonard Excoffier"/>
-        <Meta property="og:description" content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."/>
-        <Meta property="og:type" content="website"/>
-        <Link rel="canonical" href="https://excoffierleonard.com"/>
-        <Meta name="robots" content="index, follow"/>
+        <Title text="Leonard Excoffier" />
+        <Meta
+            name="description"
+            content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."
+        />
+        <Meta
+            name="keywords"
+            content="software engineer, developer, Rust, Python, web development, Leonard Excoffier, programming"
+        />
+        <Meta name="author" content="Leonard Excoffier" />
+        <Meta property="og:title" content="Leonard Excoffier" />
+        <Meta
+            property="og:description"
+            content="Software engineer portfolio for Leonard Excoffier. Full-stack development, Rust, Python and web technologies."
+        />
+        <Meta property="og:type" content="website" />
+        <Link rel="canonical" href="https://excoffierleonard.com" />
+        <Meta name="robots" content="index, follow" />
 
         // content for this welcome page
         <Router>
-            <NavBar/>
+            <NavBar />
             <main>
                 <Routes fallback=move || "Not found.">
-                    <Route path=StaticSegment("") view=HomePage/>
-                    <Route path=StaticSegment("about") view=About/>
-                    <Route path=StaticSegment("projects") view=Projects/>
-                    <Route path=StaticSegment("skills") view=Skills/>
-                    <Route path=StaticSegment("experience") view=Experience/>
-                    <Route path=StaticSegment("contact") view=Contact/>
-                    <Route path=WildcardSegment("any") view=NotFound/>
+                    <Route path=StaticSegment("") view=HomePage />
+                    <Route path=StaticSegment("about") view=About />
+                    <Route path=StaticSegment("projects") view=Projects />
+                    <Route path=StaticSegment("skills") view=Skills />
+                    <Route path=StaticSegment("experience") view=Experience />
+                    <Route path=StaticSegment("contact") view=Contact />
+                    <Route path=WildcardSegment("any") view=NotFound />
                 </Routes>
             </main>
         </Router>
@@ -61,44 +70,32 @@ fn NavBar() -> impl IntoView {
 /// Renders the home page of your application.
 #[component]
 fn HomePage() -> impl IntoView {
-    view! {
-        <h1>"Leonard Excoffier"</h1>
-    }
+    view! { <h1>"Leonard Excoffier"</h1> }
 }
 
 #[component]
 fn About() -> impl IntoView {
-    view! {
-        <h1>"About"</h1>
-    }
+    view! { <h1>"About"</h1> }
 }
 
 #[component]
 fn Projects() -> impl IntoView {
-    view! {
-        <h1>"Projects"</h1>
-    }
+    view! { <h1>"Projects"</h1> }
 }
 
 #[component]
 fn Skills() -> impl IntoView {
-    view! {
-        <h1>"Skills"</h1>
-    }
+    view! { <h1>"Skills"</h1> }
 }
 
 #[component]
 fn Experience() -> impl IntoView {
-    view! {
-        <h1>"Experience"</h1>
-    }
+    view! { <h1>"Experience"</h1> }
 }
 
 #[component]
 fn Contact() -> impl IntoView {
-    view! {
-        <h1>"Skills"</h1>
-    }
+    view! { <h1>"Skills"</h1> }
 }
 
 /// 404 - Not Found
@@ -118,7 +115,5 @@ fn NotFound() -> impl IntoView {
         resp.set_status(actix_web::http::StatusCode::NOT_FOUND);
     }
 
-    view! {
-        <h1>"Not Found"</h1>
-    }
+    view! { <h1>"Not Found"</h1> }
 }
