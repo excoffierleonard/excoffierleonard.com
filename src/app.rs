@@ -44,7 +44,6 @@ pub fn App() -> impl IntoView {
 fn HomePage() -> impl IntoView {
     view! {
         <h1>"Leonard Excoffier"</h1>
-        <A href="/another">"Go to Another Page"</A>
     }
 }
 
@@ -52,7 +51,6 @@ fn HomePage() -> impl IntoView {
 fn AnOtherPage() -> impl IntoView {
     view! {
         <h1>"This is an other page."</h1>
-        <NavBar/>
     }
 }
 
