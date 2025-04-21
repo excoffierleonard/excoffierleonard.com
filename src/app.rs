@@ -34,8 +34,9 @@ pub fn App() -> impl IntoView {
                     <Route path=StaticSegment("") view=HomePage/>
                     <Route path=StaticSegment("about") view=About/>
                     <Route path=StaticSegment("projects") view=Projects/>
-                    <Route path=StaticSegment("contact") view=Contact/>
+                    <Route path=StaticSegment("skills") view=Skills/>
                     <Route path=StaticSegment("experience") view=Experience/>
+                    <Route path=StaticSegment("contact") view=Contact/>
                     <Route path=WildcardSegment("any") view=NotFound/>
                 </Routes>
             </main>
@@ -50,8 +51,9 @@ fn NavBar() -> impl IntoView {
             <A href="/">"Home"</A>
             <A href="/about">"About"</A>
             <A href="/projects">"Projects"</A>
-            <A href="/contact">"Contact"</A>
+            <A href="/skills">"Skills"</A>
             <A href="/experience">"Experience"</A>
+            <A href="/contact">"Contact"</A>
         </nav>
     }
 }
@@ -79,7 +81,7 @@ fn Projects() -> impl IntoView {
 }
 
 #[component]
-fn Contact() -> impl IntoView {
+fn Skills() -> impl IntoView {
     view! {
         <h1>"Skills"</h1>
     }
@@ -89,6 +91,13 @@ fn Contact() -> impl IntoView {
 fn Experience() -> impl IntoView {
     view! {
         <h1>"Experience"</h1>
+    }
+}
+
+#[component]
+fn Contact() -> impl IntoView {
+    view! {
+        <h1>"Skills"</h1>
     }
 }
 
