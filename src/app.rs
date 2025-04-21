@@ -32,11 +32,27 @@ pub fn App() -> impl IntoView {
             <main>
                 <Routes fallback=move || "Not found.">
                     <Route path=StaticSegment("") view=HomePage/>
-                    <Route path=StaticSegment("another") view=AnOtherPage/>
+                    <Route path=StaticSegment("about") view=About/>
+                    <Route path=StaticSegment("projects") view=Projects/>
+                    <Route path=StaticSegment("contact") view=Contact/>
+                    <Route path=StaticSegment("experience") view=Experience/>
                     <Route path=WildcardSegment("any") view=NotFound/>
                 </Routes>
             </main>
         </Router>
+    }
+}
+
+#[component]
+fn NavBar() -> impl IntoView {
+    view! {
+        <nav>
+            <A href="/">"Home"</A>
+            <A href="/about">"About"</A>
+            <A href="/projects">"Projects"</A>
+            <A href="/contact">"Contact"</A>
+            <A href="/experience">"Experience"</A>
+        </nav>
     }
 }
 
@@ -49,20 +65,30 @@ fn HomePage() -> impl IntoView {
 }
 
 #[component]
-fn AnOtherPage() -> impl IntoView {
+fn About() -> impl IntoView {
     view! {
-        <h1>"This is an other page."</h1>
+        <h1>"About"</h1>
     }
 }
 
 #[component]
-fn NavBar() -> impl IntoView {
+fn Projects() -> impl IntoView {
     view! {
-        <nav>
-            <A href="/">"Home"</A>
-            <A href="/another">"Another Page"</A>
-            <A href="/any">"Not Found Page"</A>
-        </nav>
+        <h1>"Projects"</h1>
+    }
+}
+
+#[component]
+fn Contact() -> impl IntoView {
+    view! {
+        <h1>"Skills"</h1>
+    }
+}
+
+#[component]
+fn Experience() -> impl IntoView {
+    view! {
+        <h1>"Experience"</h1>
     }
 }
 
