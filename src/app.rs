@@ -57,12 +57,26 @@ pub fn App() -> impl IntoView {
 fn NavBar() -> impl IntoView {
     view! {
         <nav>
-            <A href="/">"Home"</A>
-            <A href="/about">"About"</A>
-            <A href="/projects">"Projects"</A>
-            <A href="/skills">"Skills"</A>
-            <A href="/experience">"Experience"</A>
-            <A href="/contact">"Contact"</A>
+            <ul>
+                <li>
+                    <A href="/">"Home"</A>
+                </li>
+                <li>
+                    <A href="/about">"About"</A>
+                </li>
+                <li>
+                    <A href="/projects">"Projects"</A>
+                </li>
+                <li>
+                    <A href="/skills">"Skills"</A>
+                </li>
+                <li>
+                    <A href="/experience">"Experience"</A>
+                </li>
+                <li>
+                    <A href="/contact">"Contact"</A>
+                </li>
+            </ul>
         </nav>
     }
 }
