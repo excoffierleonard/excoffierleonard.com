@@ -40,7 +40,7 @@ pub fn App() -> impl IntoView {
             <NavBar />
             <main>
                 <Routes fallback=move || "Not found.">
-                    <Route path=StaticSegment("") view=HomePage />
+                    <Route path=StaticSegment("") view=Home />
                     <Route path=StaticSegment("about") view=About />
                     <Route path=StaticSegment("projects") view=Projects />
                     <Route path=StaticSegment("skills") view=Skills />
@@ -83,8 +83,8 @@ fn NavBar() -> impl IntoView {
 
 /// Renders the home page of your application.
 #[component]
-fn HomePage() -> impl IntoView {
-    view! { <h1>"Leonard Excoffier"</h1> }
+fn Home() -> impl IntoView {
+    view! { <h1>"Home"</h1> }
 }
 
 #[component]
@@ -109,7 +109,7 @@ fn Experience() -> impl IntoView {
 
 #[component]
 fn Contact() -> impl IntoView {
-    view! { <h1>"Skills"</h1> }
+    view! { <h1>"Contact"</h1> }
 }
 
 /// 404 - Not Found
